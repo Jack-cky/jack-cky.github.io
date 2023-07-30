@@ -1,62 +1,712 @@
-<!DOCTYOE html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>😍 Jack's Personal Site</title>
-    </head>
-    <body>
-        <table cellspacing="20">
-            <tr>
-                <td>
-                    <img src="cat.png" alt="cat picture" height="100">
-                </td>
-                <td>
-                    <h1>Jack Chan</h1>
-                    <p><em>Web Dev Learner by <a href="http://github.com/Jack-cky"><strong>self-tough</strong></a></em></p>
-                    <p>I am learning how to build a website</p>
-                </td>
-            </tr>
-        </table>
-        <hr>
-        
-        <h3>Education</h3>
-        <ul>
-            <li>ABC University</li>
-            <li>ABC School</li>
-        </ul>
-        
-        <h3>Work Experience</h3>
-        <table border="1">
-            <thead>
-                <th>Date</th>
-                <th>Title</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1997 - 2046</td>
-                    <td>Admin at XXX Company</td>
-                </tr>
-                <tr>
-                    <td>1996 - 1997</td>
-                    <td>Worker at home</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <h3>Skills</h3>
-        <table cellspacing="10">
-            <tr>
-                <td>HTML</td>
-                <td>⭐️⭐️⭐️</td>
-            </tr>
-            <tr>
-                <td>CSS</td>
-                <td>⭐️</td>
-            </tr>
-        </table>
-        <hr>
-
-        <h3><a href="./hobbies.html">My Hobbies</a></h3>
-        <h3><a href="./contact.html">My Contact</a></h3>
-    </body>
+  <head>
+    <!-- Tab Style -->
+    <link rel="icon" href="./icons/favicon.ico">
+    <title>
+      The Data Explorer Lab
+    </title>
+    <!-- Content Style -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/nav-bar.css">
+    <link rel="stylesheet" href="./css/splash-page.css">
+    <link rel="stylesheet" href="./css/transit-bg.css">
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/project.css">
+    <link rel="stylesheet" href="./css/experience.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    <link rel="stylesheet" href="./css/nav-foot.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker&family=Caveat&family=Pacifico&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header id="nav-bar">
+      <div class="nav-bar-logo">
+        Portfolio
+      </div>
+      <div>
+        <!-- For spacing -->
+      </div>
+      <div class="nav-bar-menu">
+        <div>
+          <a class="nav-bar-item" href="#about">
+            About
+          </a>
+        </div>
+        <div>
+          <a class="nav-bar-item" href="#project">
+            Project
+          </a>
+        </div>
+        <div>
+          <a class="nav-bar-item" href="#experience">
+            Experience
+          </a>
+        </div>
+        <div>
+          <a class="nav-bar-item" href="#contact">
+            Contact
+          </a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- Splash Page -->
+      <section id="splash-page">
+        <div>
+          <div class="splash-page-msg">
+            <div>
+              Unknown is often scary
+            </div>
+            <div class="splash-page-msg-spc">
+              but I dare to challenge it
+            </div>
+          </div>
+          <div class="splash-page-profile">
+            <div class="splash-page-title">
+              <div>
+                Jack Chan, Data Explorer
+              </div>
+              <div class="splash-page-edu">
+                B.Sc. in Statistics, CUHK
+              </div>
+            </div>
+            <div class="splash-page-skill">
+              <div class="splash-page-tool">
+                Python
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;SQL
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;R
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;SAS
+                <div class="splash-page-tooltip">
+                  <img class="splash-page-cert" src="./imgs/splash-page-sas-a00-231.png">
+                </div>
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;C
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;C++
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Java
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;HTML
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;CSS
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;JavaScript
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;MS Office
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Emarsys
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Google Analytics
+                <div class="splash-page-tooltip">
+                  <img class="splash-page-cert" src="./imgs/splash-page-google-analytics-iq.png">
+                  <img class="splash-page-cert" src="./imgs/splash-page-google-analytics.png">
+                </div>
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Tableau
+                <div class="splash-page-tooltip">
+                  <img class="splash-page-cert" src="./imgs/splash-page-tableau-tds-c01.png">
+                  <img class="splash-page-cert" src="./imgs/splash-page-tableau-tda-c01.png">
+                </div>
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Azure
+                <div class="splash-page-tooltip">
+                  <img class="splash-page-cert" src="./imgs/splash-page-azure-az-900.png">
+                  <img class="splash-page-cert" src="./imgs/splash-page-azure-dp-900.png">
+                  <img class="splash-page-cert" src="./imgs/splash-page-azure-ai-900.png">
+                  <img class="splash-page-cert" src="./imgs/splash-page-azure-dp-100.png">
+                </div>
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;AWS
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Databricks
+                <div class="splash-page-tooltip">
+                  <img class="splash-page-cert" src="./imgs/splash-page-databricks-lakehouse.png">
+                </div>
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Alteryx
+                <div class="splash-page-tooltip">
+                  <img class="splash-page-cert" src="./imgs/splash-page-alteryx-core.png">
+                  <img class="splash-page-cert" src="./imgs/splash-page-alteryx-advanced.png">
+                </div>
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;DataRobot
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;H2O.ai
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Neo4j
+                <div class="splash-page-tooltip">
+                  <img class="splash-page-cert" src="./imgs/splash-page-neo4j-pro.png">
+                  <img class="splash-page-cert" src="./imgs/splash-page-neo4j-gds.png">
+                </div>
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Scrum
+                <div class="splash-page-tooltip">
+                  <img class="splash-page-cert" src="./imgs/splash-page-scrum-psm-1.png">
+                </div>
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;Jira
+              </div>
+              <div class="splash-page-tool">
+                &nbsp;/&nbsp;and learning more...
+              </div>
+            </div>
+            <div class="splash-page-explore">
+              <a class="splash-page-nav" href="#transit-bg">
+                Scroll Down
+                <img class="splash-page-arrow" src="./icons/scroll-down.svg">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="splash-page-slogan">
+          <p>
+            Today is a good day to explore!
+          </p>
+        </div>
+      </section>
+      <!-- Transit Background -->
+      <section id="transit-bg">
+        <div class="transit-bg-grid">
+          <img class="transit-bg-img" src="./imgs/transit-img.gif">
+          <!-- Gifs Reference -->
+          <!-- https://www.pexels.com/video/time-lapse-video-of-blue-sky-4433843/ -->
+          <!-- https://www.pexels.com/video/people-walking-in-building-in-hong-kong-10783018/ -->
+        </div>
+      </section>
+      <!-- About -->
+      <section id="about">
+        <div class="about-ttl">
+          <div class="about-nav">
+            Who I Am
+          </div>
+          <div class="about-msg">
+            <div>
+              Unleashing data insights
+            </div>
+            <div class="about-msg-spc">
+              for smarter decisions
+            </div>
+            <div class="about-msg-spc">
+              that's what motivates me!
+            </div>
+          </div>
+        </div>
+        <div class="about-smry-img">
+          <div class="about-img-spc">
+            <img class="about-img-views" src="./imgs/about-img-views.png">
+          </div>
+          <div class="about-smry">
+            As an astute data explorer, I thrive on using data to drive business value. Transforming data into actionable insights, I help facilitate informed decisions, process optimisation, and growth. My business acumen and communication skills enable effective collaborations and tailored data solutions that align with objectives. I'm committed to expanding my expertise, delivering value, and driving data-centric innovation.
+          </div>
+          <div class="about-img-spc">
+            <img class="about-img-typing" src="./imgs/about-img-typing.png">
+            <!-- Image Reference -->
+            <!-- https://www.pexels.com/photo/unrecognizable-hacker-with-smartphone-typing-on-laptop-at-desk-5935791/ -->
+          </div>
+        </div>
+      </section>
+      <!-- Project -->
+      <section id="project">
+        <div class="project-ttl">
+          <div class="project-msg">
+            That Inspire and Engage!
+          </div>
+          <div class="project-nav">
+            Passion-fueled Project
+          </div>
+        </div>
+        <div class="project-list">
+          <!-- CV 02 -->
+          <div class="project-item">
+            <div class="project-img-link">
+              <img class="project-img" src="./imgs/project-cv-02.gif">
+              <a class="project-link" href="https://github.com/Jack-cky/SupermarketScanner" target="_blank">
+                <img class="project-navigator" src="./icons/project-navigator.svg">
+                GitHub
+              </a>
+            </div>
+            <div class="project-info">
+              <div class="project-index">
+                CV 02
+              </div>
+              <div class="project-tag">
+                Object Detection
+              </div>
+              <div class="project-tag">
+                Prevent Shoplifting
+              </div>
+            </div>
+            <div class="project-title">
+              Supermarket Scanner
+            </div>
+          </div>
+          <!-- CV 01 -->
+          <div class="project-item">
+            <div class="project-img-link">
+              <img class="project-img" src="./imgs/project-cv-01.png">
+              <a class="project-link" href="https://www.kaggle.com/code/jackkyc/rice-image-classification-100-accuracy" target="_blank">
+                <img class="project-navigator" src="./icons/project-navigator.svg">
+                Kaggle
+              </a>
+            </div>
+            <div class="project-info">
+              <div class="project-index">
+                CV 02
+              </div>
+              <div class="project-tag">
+                Image Classification
+              </div>
+              <div class="project-tag">
+                Rice Varieties
+              </div>
+            </div>
+            <div class="project-title">
+              Rice Image Classification
+            </div>
+          </div>
+          <!-- ML 02 -->
+          <div class="project-item">
+            <div class="project-img-link">
+              <img class="project-img" src="./imgs/project-ml-02.gif">
+              <a class="project-link" href="https://github.com/Jack-cky/Wager-Optimisation" target="_blank">
+                <img class="project-navigator" src="./icons/project-navigator.svg">
+                GitHub
+              </a>
+            </div>
+            <div class="project-info">
+              <div class="project-index">
+                ML 02
+              </div>
+              <div class="project-tag">
+                Classification
+              </div>
+              <div class="project-tag">
+                Football Gambling
+              </div>
+            </div>
+            <div class="project-title">
+              Wager Optimisation
+            </div>
+          </div>
+          <!-- ML 01 -->
+          <div class="project-item">
+            <div class="project-img-link">
+              <img class="project-img" src="./imgs/project-ml-01.png">
+              <a class="project-link" href="https://www.kaggle.com/code/jackkyc/55-roi-never-gonna-let-you-churn" target="_blank">
+                <img class="project-navigator" src="./icons/project-navigator.svg">
+                Kaggle
+              </a>
+            </div>
+            <div class="project-info">
+              <div class="project-index">
+                ML 01
+              </div>
+              <div class="project-tag">
+                Classification
+              </div>
+              <div class="project-tag">
+                Churn Prediction
+              </div>
+            </div>
+            <div class="project-title">
+              Never Gonna Let You Churn
+            </div>
+          </div>
+          <!-- Vis 03 -->
+          <div class="project-item">
+            <div class="project-img-link">
+              <img class="project-img" src="./imgs/project-vis-03.png">
+              <a class="project-link" href="https://public.tableau.com/app/profile/jackcky/viz/HongKongPopulationMovement/POPULATION" target="_blank">
+                <img class="project-navigator" src="./icons/project-navigator.svg">
+                Tableau
+              </a>
+            </div>
+            <div class="project-info">
+              <div class="project-index">
+                Vis 03
+              </div>
+              <div class="project-tag">
+                Visualisation
+              </div>
+              <div class="project-tag">
+                Population Movement
+              </div>
+            </div>
+            <div class="project-title">
+              Bye Nine Bye
+            </div>
+          </div>
+          <!-- Vis 02 -->
+          <div class="project-item">
+            <div class="project-img-link">
+              <img class="project-img" src="./imgs/project-vis-02.png">
+              <a class="project-link" href="https://public.tableau.com/app/profile/jackcky/viz/TalentsScramblinginHongKong/HongKongTalentScrambling" target="_blank">
+                <img class="project-navigator" src="./icons/project-navigator.svg">
+                Tableau
+              </a>
+            </div>
+            <div class="project-info">
+              <div class="project-index">
+                Vis 02
+              </div>
+              <div class="project-tag">
+                Visualisation
+              </div>
+              <div class="project-tag">
+                Talent Scrambling
+              </div>
+            </div>
+            <div class="project-title">
+              Every Page Ask
+            </div>
+          </div>
+          <!-- Vis 01 -->
+          <div class="project-item">
+            <div class="project-img-link">
+              <img class="project-img" src="./imgs/project-vis-01.png">
+              <a class="project-link" href="https://public.tableau.com/app/profile/jackcky/viz/HongKongCompulsoryTestingNoticeDragonTigerBillboard/DTB" target="_blank">
+                <img class="project-navigator" src="./icons/project-navigator.svg">
+                Tableau
+              </a>
+            </div>
+            <div class="project-info">
+              <div class="project-index">
+                Vis 01
+              </div>
+              <div class="project-tag">
+                Visualisation
+              </div>
+              <div class="project-tag">
+                COVID Test
+              </div>
+            </div>
+            <div class="project-title">
+              Dragon Tiger Billboard
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Experience -->
+      <section id="experience">
+        <div class="experience-ttl-img">
+          <div class="experience-ttl">
+            <div class="experience-msg">
+              Empower business with data
+            </div>
+            <div class="experience-nav">
+              <div>
+                Professional
+              </div>
+              <div class="experience-nav-spc">
+                Experience
+              </div>
+            </div>
+          </div>
+          <div class="experience-img"></div>
+        </div>
+        <div class="experience-smry-list">
+          <div class="experience-smry">
+            Drawing from diverse experiences, I've harnessed data to drive value and growth. As a dedicated data professional, my goal is to strengthen companies with informed decision-making.
+          </div>
+          <div class="experience-list">
+            <!-- Job 08 -->
+            <div class="experience-item" onmouseover="changeImage('./imgs/experience-moto.png')">
+              <div class="experience-info">
+                <div>
+                  <div class="experience-index">
+                    08
+                  </div>
+                </div>
+                <div class="experience-history">
+                  <div class="experience-title">
+                    Consultant @ NEXT AI
+                  </div>
+                  <div class="experience-company">
+                    NCSI (HK) Limited
+                  </div>
+                  <div class="experience-duration">
+                    June 2023 - Present
+                  </div>
+                </div>
+              </div>
+              <hr size="1" class="experience-spc">
+            </div>
+            <!-- Job 06 -->
+            <div class="experience-item" onmouseover="changeImage('./imgs/experience-06.png')">
+              <div class="experience-info">
+                <div>
+                  <div class="experience-index">
+                    06
+                  </div>
+                </div>
+                <div class="experience-history">
+                  <div class="experience-title">
+                    Analyst @ Customer Insights
+                  </div>
+                  <div class="experience-company">
+                    DFI Retail Group
+                  </div>
+                  <div class="experience-duration">
+                    February 2022 - April 2023
+                  </div>
+                </div>
+              </div>
+              <hr size="1" class="experience-spc">
+            </div>
+            <!-- Job 05 -->
+            <div class="experience-item" onmouseover="changeImage('./imgs/experience-05.png')">
+              <div class="experience-info">
+                <div>
+                  <div class="experience-index">
+                    05
+                  </div>
+                </div>
+                <div class="experience-history">
+                  <div class="experience-title">
+                    Analyst @ Data Analytics
+                  </div>
+                  <div class="experience-company">
+                    Swire Resources Limited
+                  </div>
+                  <div class="experience-duration">
+                    June 2021 - February 2022
+                  </div>
+                </div>
+              </div>
+              <hr size="1" class="experience-spc">
+            </div>
+            <!-- Job 04 -->
+            <div class="experience-item" onmouseover="changeImage('./imgs/experience-04.png')">
+              <div class="experience-info">
+                <div>
+                  <div class="experience-index">
+                    04
+                  </div>
+                </div>
+                <div class="experience-history">
+                  <div class="experience-title">
+                    Intern @ Risk Department
+                  </div>
+                  <div class="experience-company">
+                    Ping An OneConnect Bank (Hong Kong) Limited
+                  </div>
+                  <div class="experience-duration">
+                    March 2021 - May 2021
+                  </div>
+                </div>
+              </div>
+              <hr size="1" class="experience-spc">
+            </div>
+            <!-- Job 03 -->
+            <div class="experience-item" onmouseover="changeImage('./imgs/experience-moto.png')">
+              <div class="experience-info">
+                <div>
+                  <div class="experience-index">
+                    03
+                  </div>
+                </div>
+                <div class="experience-history">
+                  <div class="experience-title">
+                    Tester @ Managed Services
+                  </div>
+                  <div class="experience-company">
+                    Computer And Technologies Holdings Limited
+                  </div>
+                  <div class="experience-duration">
+                    October 2020 - March 2021
+                  </div>
+                </div>
+              </div>
+              <hr size="1" class="experience-spc">
+            </div>
+            <!-- Job 02 -->
+            <div class="experience-item" onmouseover="changeImage('./imgs/experience-02.png')">
+              <div class="experience-info">
+                <div>
+                  <div class="experience-index">
+                    02
+                  </div>
+                </div>
+                <div class="experience-history">
+                  <div class="experience-title">
+                    Intern @ Financial Stability Surveillance Division
+                  </div>
+                  <div class="experience-company">
+                    Hong Kong Monetary Authority
+                  </div>
+                  <div class="experience-duration">
+                    June 2020 - August 2020
+                  </div>
+                </div>
+              </div>
+              <hr size="1" class="experience-spc">
+            </div>
+            <!-- Job 01 -->
+            <div class="experience-item" onmouseover="changeImage('./imgs/experience-moto.png')">
+              <div class="experience-info">
+                <div>
+                  <div class="experience-index">
+                    01
+                  </div>
+                </div>
+                <div class="experience-history">
+                  <div class="experience-title">
+                    Admin @ Document Retention
+                  </div>
+                  <div class="experience-company">
+                    Mayer Brown
+                  </div>
+                  <div class="experience-duration">
+                    July 2019 - June 2020
+                  </div>
+                </div>
+              </div>
+              <hr size="1" class="experience-spc">
+            </div>
+            <!-- Beginning -->
+            <div class="experience-begin">
+              <div class="experience-begin-pt">
+                Beginning of Career
+                <img class="experience-arrow" src="./icons/experience-begin.svg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact -->
+      <section id="contact">
+        <div class="contact-ttl">
+          <div class="contact-msg">
+            Unlock the power of data together
+             <div class="contact-nav">
+               <div>
+                 Let's connect
+               </div>
+               <div class="contact-nav-spc">
+                 and explore together!
+               </div>
+             </div>
+          </div>
+        </div>
+        <div>
+          <img class="contact-img" src="./imgs/contact-views.png">
+          <!-- Image Reference -->
+          <!-- https://www.pexels.com/photo/white-cloud-in-the-sky-1586981/ -->
+        </div>
+        <div class="contact-connection">
+          <div class="contact-invite">
+            Discuss a project or just want to say hi? Drop me a message below.
+          </div>
+          <div class="contact-list">
+            <!-- LinkedIn -->
+            <a class="contact-item" href="https://www.linkedin.com/in/jack-cky/" target="_blank">
+              <img class="contact-navigator" src="./imgs/contact-linkedin.png">
+              <div class="contact-tooltip">
+                LinkedIn
+              </div>
+            </a>
+            <!-- GitHub -->
+            <a class="contact-item" href="https://github.com/Jack-cky" target="_blank">
+              <img class="contact-navigator" src="./imgs/contact-github.png">
+              <div class="contact-tooltip">
+                GitHub
+              </div>
+            </a>
+            <!-- Kaggle -->
+            <a class="contact-item" href="https://www.kaggle.com/jackkyc" target="_blank">
+              <img class="contact-navigator" src="./imgs/contact-kaggle.png">
+              <div class="contact-tooltip">
+                Kaggle
+              </div>
+            </a>
+            <!-- Tableau -->
+            <a class="contact-item" href="https://public.tableau.com/app/profile/jackcky" target="_blank">
+              <img class="contact-navigator" src="./imgs/contact-tableau.png">
+              <div class="contact-tooltip">
+                Tableau
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer id="nav-foot">
+			<div class="nav-foot-logo-msg">
+				<div class="nav-foot-logo">
+					Good Day
+				</div>
+				<div class="nav-foot-msg">
+					Made with &#9829; by Jack Chan
+				</div>
+			</div>
+			<div class="nav-foot-ttl-menu">
+				<div class="nav-foot-ttl">
+					Jack's Portfolio
+				</div>
+				<div class="nav-foot-menu">
+					<div>
+						<a class="nav-foot-item" href="#nav-bar">
+							Top
+						</a>
+					</div>
+					<div>
+						<a class="nav-foot-item" href="#about">
+							About
+						</a>
+					</div>
+					<div>
+						<a class="nav-foot-item" href="#project">
+							Project
+						</a>
+					</div>
+					<div>
+						<a class="nav-foot-item" href="#experience">
+							Experience
+						</a>
+					</div>
+					<div>
+						<a class="nav-foot-item" href="#contact">
+							Contact
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+    <!-- JavaScript Scripts -->
+    <script src="js/scrolling_config.js"></script>
+    <script src="js/change_image_config.js"></script>
+  </body>
 </html>
+<!-- Website Reference -->
+<!-- https://azcre.jp/ -->
