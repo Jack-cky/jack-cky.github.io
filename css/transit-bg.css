@@ -1,0 +1,17 @@
+#transit-bg {
+	position: relative;
+	margin-bottom: 80%;
+}
+
+.transit-bg-grid {
+	position: absolute;
+	left: -12.5%;
+	right: -12.5%;
+}
+
+.transit-bg-img {
+	background-position: center;
+	background-size: cover;
+	max-height: 100vh;
+	width: 100%;
+}

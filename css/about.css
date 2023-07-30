@@ -1,0 +1,56 @@
+#about {
+  margin-bottom: 30%;
+}
+
+.about-ttl {
+  margin: 0 0 10% 15%;
+}
+
+.about-nav {
+  font-size: 1.2rem;
+  margin-bottom: 1%;
+}
+
+.about-msg {
+  font-family: 'Caveat', cursive;
+  font-size: 3vw;
+  color: rgb(42, 55, 72);
+}
+
+.about-msg-spc {
+  margin-top: 2%;
+}
+
+.about-smry-img {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.about-img-spc {
+  position: relative;
+}
+
+.about-img-views {
+  position: absolute;
+  left: -50%;
+  top: -40%;
+  border-radius: 0 10px 10px 0;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-smry {
+  font-size: 1.4rem;
+  line-height: 1.5em;
+}
+
+.about-img-typing {
+  position: absolute;
+  right: -50%;
+  bottom: 80%;
+  border-radius: 10px 0 0 10px;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
