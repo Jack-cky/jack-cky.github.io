@@ -1,0 +1,22 @@
+#nav-bar {
+  display: grid;
+	grid-template-columns: 1fr 2fr 3fr;
+	margin: 4% -5% 6%;
+}
+
+.nav-bar-logo {
+	font-family: 'Pacifico', cursive;
+	font-size: 1.5rem;
+}
+
+.nav-bar-menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.nav-bar-item {
+	font-size: 1.2rem;
+	text-decoration: none;
+	color: rgb(94, 104, 111);
+}

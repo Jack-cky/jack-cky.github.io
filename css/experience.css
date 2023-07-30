@@ -1,0 +1,118 @@
+#experience {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 30%;
+}
+
+.experience-ttl-img {
+  position: relative;
+}
+
+.experience-ttl {
+  margin-bottom: 9%;
+}
+
+.experience-msg {
+  font-size: 1.2rem;
+  margin-bottom: 2%;
+}
+
+.experience-nav {
+  font-family: 'Caveat', cursive;
+  font-size: 5vw;
+  color: rgb(42, 55, 72);
+}
+
+.experience-nav-spc {
+	margin: 2% 0 0 8%;
+}
+
+.experience-img {
+  position: absolute;
+  left: -26%;
+  border-radius: 0 10px 10px 0;
+  height: 70%;
+  width: 100%;
+  background-size: cover;
+	background-position: center;
+  background-image: url('../imgs/experience-06.png');
+  transition: all 0.3s ease-in-out;
+}
+
+.experience-smry-list {
+  padding-right: 5%;
+}
+
+.experience-smry {
+  font-size: 1.3rem;
+  line-height: 1.5em;
+  margin: 5% 0 10%;
+}
+
+.experience-list {
+  height: 500px;
+  overflow: scroll;
+}
+
+.experience-item {
+  padding-left: 5%;
+}
+
+.experience-info {
+  display: flex;
+}
+
+.experience-index {
+  padding: 3px 15px;
+  border-radius: 40%;
+  border-style: solid;
+  border-width: .7px;
+  font-size: .9rem;
+  margin: 6px 20px 0 0;
+}
+
+.experience-history {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: .5rem;
+}
+
+.experience-title {
+  font-size: max(1.5rem, 2vw);
+  color: rgb(42, 55, 72);
+}
+
+.experience-company {
+  font-size: max(1.3rem, 1.5vw);
+}
+
+.experience-duration {
+  color: rgb(118, 127, 133);
+}
+
+.experience-spc {
+  margin: 4% 0;
+}
+
+.experience-begin {
+	display: flex;
+  justify-content: right;
+}
+
+.experience-begin-pt {
+	display: flex;
+	align-items: center;
+	column-gap: 20px;
+  padding: 10px 50px;
+	border-color: rgb(150, 159, 170);
+	border-style: solid;
+  border-radius: 90%;
+  border-width: .5px;
+	font-size: 1.1rem;
+	font-style: italic;
+}
+
+.experience-arrow {
+  height: 20px;
+}

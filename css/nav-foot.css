@@ -1,0 +1,48 @@
+#nav-foot {
+	display: grid;
+	grid-template-columns: 1fr 2.5fr;
+	border-top-style: solid;
+	margin: 0 -12.5%;
+}
+
+.nav-foot-logo-msg {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 8%;
+	border-right-style: solid;
+}
+
+.nav-foot-logo {
+	font-family: 'Pacifico', cursive;
+	font-size: 1.5rem;
+}
+
+.nav-foot-msg {
+	font-size: .8rem;
+	margin-top: 3%;
+}
+
+.nav-foot-ttl-menu {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 4%;
+}
+
+.nav-foot-ttl {
+	font-size: 1.3rem;
+	margin: 2% 0 3% 3%;
+}
+
+.nav-foot-menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 8%;
+}
+
+.nav-foot-item {
+	font-size: 1.2rem;
+	color: rgb(94, 104, 111);
+	text-decoration: none;
+}
