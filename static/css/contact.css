@@ -1,0 +1,12 @@
+.contact {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6vh;
+}
+
+.contact iframe {
+  border: none;
+  height: 100vh;
+  width: 100%;
+}

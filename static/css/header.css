@@ -1,0 +1,146 @@
+header {
+  align-items: center;
+  background-color: var(--colour-white);
+  background-image: var(--background-image);
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  margin-left: -5%;
+  padding: 0 5%;
+  position: fixed;
+  top: 0;
+  width: 90%;
+  z-index: 99;
+}
+
+.navbar-logo a {
+  color: var(--colour-black);
+  font-family: "Pacifico", cursive;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar {
+  align-items: center;
+  display: flex;
+}
+
+.navbar a {
+  color: var(--colour-black);
+  font-size: 1.1rem;
+  margin: 0 20px;
+  text-decoration: none;
+}
+
+.navbar-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+  z-index: 1;
+}
+
+.navbar-btn path {
+  fill: none;
+  stroke: var(--colour-black);
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-btn .btn-outer {
+  stroke-dasharray: 60 207;
+}
+
+.navbar-btn .btn-inner {
+  stroke-dasharray: 60 60;
+}
+
+.navbar-btn.active .btn-outer {
+  stroke: var(--colour-black);
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+}
+
+.navbar-btn.active .btn-inner {
+  stroke: var(--colour-black);
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+}
+
+.navbar-menu {
+  align-items: center;
+  background-color: var(--background-colour-grey-tp);
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+  width: 100%;
+}
+
+.navbar-menu.active {
+  display: flex;
+  opacity: 1;
+}
+
+.navbar-menu a {
+  color: var(--colour-black);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-menu a:not(.icon):hover {
+  color: var(--colour-white);
+  background-color: var(--colour-gold);
+}
+
+.social-icons {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+
+.social-icons a,
+.social-icons div {
+  cursor: pointer;
+  position: relative;
+  height: 30px;
+  width: 30px;
+}
+
+.social-icons img {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.social-icons .icon-hover {
+  opacity: 0;
+}
+
+.social-icons a:hover .icon-default {
+  opacity: 0;
+}
+
+.social-icons a:hover .icon-hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  
+  .navbar-btn {
+    display: flex;
+  }
+}

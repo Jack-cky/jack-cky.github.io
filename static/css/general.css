@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --background-colour-gradient-black: linear-gradient(180deg, #f5f5f5, #484a4f);
+  --background-colour-grey-tp: rgba(216, 220, 216, 0.9);
+  --background-image: url(../img/background/bg.png);
+  --background-text-image: url(../img/background/text.svg);
+  --colour-black: #484a4f;
+  --colour-gold: #e3ba69;
+  --colour-grey: #d7dcd8;
+  --colour-white: #f5f5f5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--colour-white);
+  background-image: var(--background-image);
+  color: var(--colour-black);
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  overflow: scroll;
+  padding: 0 5%;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+main {
+  margin-top: 80px;
+}

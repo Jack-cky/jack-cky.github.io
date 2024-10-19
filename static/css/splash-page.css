@@ -1,0 +1,40 @@
+.welcome-msg {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Handjet", sans-serif;
+  height: calc(100vh - 80px);
+  justify-content: center;
+}
+
+.welcome-msg p {
+  margin: 0;
+}
+
+.welcome-msg .greeting {
+  font-size: 4rem;
+}
+
+.welcome-msg .intro {
+  display: flex;
+  font-size: 5rem;
+}
+
+.welcome-msg .typewriter {
+  animation: cursor 0.8s infinite;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.welcome-msg .hide-cursor {
+  animation: none;
+}
+
+@keyframes cursor {
+  0%, 100% {
+    border-right: 2px solid var(--colour-black);
+  }
+  50% {
+    border-right: transparent;
+  }
+}

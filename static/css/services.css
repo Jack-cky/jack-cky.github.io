@@ -1,0 +1,9 @@
+.out-of-service {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 170px);
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+}

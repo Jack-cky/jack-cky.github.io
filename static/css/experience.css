@@ -1,0 +1,105 @@
+.experience {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6vh;
+}
+
+.experience .jobs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.experience .job {
+  height: 285px;
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  width: 400px;
+}
+
+.experience .job-img {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.experience .job-img:before {
+  background: var(--background-colour-gradient-black);
+  content: "";
+  height: 100%;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  position: absolute;
+  transition: 0.5s;
+  width: 100%;
+  z-index: 1;
+}
+
+.experience .job-img img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.experience .job-card {
+  align-items: flex-end;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  padding: 5%;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.experience .job-detail {
+  color: var(--colour-white);
+  display: inline-block;
+}
+
+.experience .job-detail h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-delay: 0.3s;
+  transform: translateY(200px);
+}
+
+.experience .job-detail hr {
+  transition: 0.5s;
+  transform: translateY(200px);
+  transition-delay: 0.35s;
+}
+
+.experience .job-detail p {
+  font-size: 0.8rem;
+  margin: 0;
+  transition: 0.5s;
+  transition-delay: 0.4s;
+  transform: translateY(200px);
+}
+
+.experience .job:hover {
+  box-shadow: 0 10px 20px var(--colour-black);
+  z-index: 1;
+  
+  .job-img:before {
+    opacity: 1;
+  }
+  
+  .job-detail h2 {
+    transform: translateY(0px);
+  }
+  
+  .job-detail hr {
+    transform: translateY(0px);
+  }
+  
+  .job-detail p {
+    transform: translateY(0px);
+  }
+}

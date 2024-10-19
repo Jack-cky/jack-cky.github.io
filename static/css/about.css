@@ -1,0 +1,269 @@
+.self-intro {
+  border-radius: 40% 10% / 20% 50%;
+  height: 60vh;
+  margin: 0 -3%;
+  overflow: hidden;
+  position: relative;
+}
+
+.self-intro .self-intro-image {
+  bottom: -15%;
+  height: auto;
+  left: 50%;
+  min-height: 100%;
+  object-fit: cover;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.self-intro .tag-about,
+.self-intro .tag-name {
+  position: absolute;
+  text-shadow: 1px 1px 2px var(--colour-black);
+}
+
+.self-intro .tag-about {
+  color: var(--colour-grey);
+  font-size: large;
+  right: 7%;
+  text-align: right;
+  top: 5%;
+  width: 35vw;
+}
+
+.self-intro .tag-name {
+  bottom: 5%;
+  color: var(--colour-white);
+  left: 7%;
+}
+
+.self-intro .tag-about p,
+.self-intro .tag-name h2,
+.self-intro .tag-name p {
+  margin: 0;
+}
+
+.self-intro .tag-about p,
+.self-intro .tag-name p {
+  font-style: italic;
+}
+
+@media (max-width: 1144px) {
+  .self-intro .self-intro-image {
+    top: 0;
+  }
+}
+
+.education {
+  height: 450px;
+  margin: 0 auto;
+  width: 85%;
+}
+
+.education .slideshow {
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  justify-content: space-around;
+  position: relative;
+  width: 100%;
+}
+
+.education .schools {
+  height: 300px;
+  position: relative;
+  width: 100%;
+}
+
+.education .school {
+  height: auto;
+  pointer-events: auto;
+  position: absolute;
+  width: 100%;
+}
+
+.education .school-image {
+  position: relative;
+  width: 270px;
+}
+
+.education .school-image::before {
+  background: var(--colour-white);
+  content: "";
+  height: 101%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: -1px;
+  width: 101%;
+  z-index: 1;
+}
+
+.education .school-image img {
+  display: block;
+  height: auto;
+  opacity: 0;
+  position: relative;
+  transition: opacity 0.3s ease-out 0.45s;
+  width: 100%;
+}
+
+.education .school.active .school-image img {
+  opacity: 1;
+}
+
+.education .school.active .school-image::before {
+  opacity: 0.8;
+}
+
+.education .details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  justify-content: center;
+  line-height: 1.8;
+  position: absolute;
+  right: 10%;
+  top: 0%;
+  width: 50%;
+}
+
+.education .qualification {
+  bottom: 50px;
+  left: -1.8%;
+  position: absolute;
+  z-index: 1;
+}
+
+.education .qualification .line-delay {
+  margin: 0 -5px;
+}
+
+.education .qualification .academy {
+  font-size: 1.1rem;
+}
+
+.education .details .line-delay .details {
+  font-size: 0.8rem;
+  margin-left: 30px;
+}
+
+.education .qualification .title {
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.education .line-delay {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.education .line-delay a {
+  color: var(--colour-gold);
+}
+
+.education .line-delay p {
+  display: inline-block;
+  margin: 0;
+  transform: translateY(100%);
+}
+
+.education .qualification .line-delay p {
+  transition: .5s;
+}
+
+.education .details .line-delay p {
+  transition: .21s;
+}
+
+.education .school.active .qualification .line-delay p {
+  transform: translateY(0);
+}
+
+.education .school.active .details .line-delay p {
+  transform: translateY(0);
+}
+
+.education .controls {
+  position: relative;
+  text-align: right;
+  z-index: 1;
+}
+
+.education .controls ul {
+  list-style: none;
+}
+
+.education .controls ul li {
+  background: var(--colour-grey);
+  cursor: pointer;
+  display: inline-block;
+  height: 10px;
+  margin: 3px;
+  width: 10px;
+}
+
+.education .controls ul li.active {
+  background: var(--colour-gold);
+}
+
+@media (max-width: 990px) {
+  .education .details {
+    left: 300px;
+  }
+}
+
+@media (max-width: 650px) {
+  .education .details {
+    display: none;
+  }
+}
+
+.certification {
+  padding-bottom: 6vh;
+}
+
+.certification picture {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vh;
+  justify-content: center;
+}
+
+.certification .badge {
+  position: relative;
+  display: inline-block;
+}
+
+.certification .badge img {
+  height: 4rem;
+  width: 4rem;
+}
+
+.certification .badge-tooltip {
+  background-color: var(--colour-gold);
+  border-radius: 5px;
+  color: var(--colour-white);
+  font-size: 0.8rem;
+  left: 50%;
+  margin-left: 0;
+  opacity: 0;
+  padding: 0.3rem;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  top: 100%;
+  transition: opacity 0.5s;
+  visibility: hidden;
+  width: 80px;
+  z-index: 1;
+}
+
+
+.certification .badge:hover .badge-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
