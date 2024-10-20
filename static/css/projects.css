@@ -39,6 +39,7 @@
   height: 300px;
   justify-content: center;
   padding: 15px;
+  position: relative; /* Set position relative */
   text-align: center;
   width: 300px;
 }
@@ -62,8 +63,12 @@
 
 .projects .project-info {
   align-items: center;
+  bottom: 5px;
   display: flex;
   justify-content: space-between;
+  left: 15px;
+  position: absolute;
+  right: 15px;
 }
 
 .projects .project-info .links {

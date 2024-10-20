@@ -17,6 +17,7 @@
   transition: 0.5s;
   transform-style: preserve-3d;
   overflow: hidden;
+  position: relative;
   width: 400px;
 }
 
@@ -86,20 +87,20 @@
 .experience .job:hover {
   box-shadow: 0 10px 20px var(--colour-black);
   z-index: 1;
-  
-  .job-img:before {
-    opacity: 1;
-  }
-  
-  .job-detail h2 {
-    transform: translateY(0px);
-  }
-  
-  .job-detail hr {
-    transform: translateY(0px);
-  }
-  
-  .job-detail p {
-    transform: translateY(0px);
-  }
+}
+
+.experience .job:hover .job-img:before {
+  opacity: 1;
+}
+
+.experience .job:hover .job-detail h2 {
+  transform: translateY(0px);
+}
+
+.experience .job:hover .job-detail hr {
+  transform: translateY(0px);
+}
+
+.experience .job:hover .job-detail p {
+  transform: translateY(0px);
 }
