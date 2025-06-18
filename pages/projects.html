@@ -1,20 +1,38 @@
 <body>
+  <audio id="technologiaAudio" src="/static/audio/technologia.m4a" preload="auto"></audio>
   <!-- PROJECTS -->
   <div class="project-cat">
     <div data-filter="all" class="active">All</div>
-    <div data-filter="da">Data Analytics</div>
-    <div data-filter="ml">Machine Learing</div>
-    <div data-filter="cv">Computer Vision</div>
+    <div data-filter="ind">Indigence</div>
+    <div data-filter="tec">Technologia</div>
+    <div data-filter="vis">Visualisation</div>
   </div>
   <div class="projects">
-    <div class="project" data-category="da">
+    <div class="project" data-category="tec vis">
+      <picture class="concept">
+        <img src="/static/img/project/antiemptytrader.png">
+      </picture>
+      <div class="detail">
+        <h4 class="title">Anti-MPT</h4>
+        <hr>
+        <p class="highlight">A trading bot that challenges Modern Portfolio Theory by leveraging reinforcement learning to trade a single stock.</p>
+        <div class="project-info">
+          <div class="date">18 June 2025</div>
+          <div class="links">
+            <a href="https://antimpt.koyeb.app/" target="_blank"><img src="/static/img/project/icon/django.svg"></a>
+            <a href="https://github.com/Jack-cky/Anti-MPT" target="_blank"><img src="/static/img/project/icon/github.svg"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="project" data-category="ind">
       <picture class="concept">
         <img src="/static/img/project/superpricewatchdog.png">
       </picture>
       <div class="detail">
         <h4 class="title">SuperPriceWatchdog</h4>
         <hr>
-        <p class="highlight">Track and be notified of supermarket goods prices hitting their lowest point.</p>
+        <p class="highlight">An unofficial Telegram bot that monitors supermarket product prices and alerts users when they reach their optimal prices.</p>
         <div class="project-info">
           <div class="date">15 February 2024</div>
           <div class="links">
@@ -24,23 +42,24 @@
         </div>
       </div>
     </div>
-    <div class="project" data-category="cv">
+    <div class="project" data-category="tec">
       <picture class="concept">
         <img src="/static/img/project/supermarketscanner.png">
       </picture>
       <div class="detail">
         <h4 class="title">SupermarketScanner</h4>
         <hr>
-        <p class="highlight">Builds an AI camera at self-checkout counters to identify potential shoplifting incidents in supermarket.</p>
+        <p class="highlight">An AI camera system that streamlines the checkout process and prevents shoplifting at self-checkout counters in supermarkets.</p>
         <div class="project-info">
           <div class="date">17 April 2023</div>
           <div class="links">
+            <a href="https://supermarketscanner.streamlit.app/" target="_blank"><img src="/static/img/project/icon/streamlit.svg"></a>
             <a href="https://github.com/Jack-cky/SupermarketScanner" target="_blank"><img src="/static/img/project/icon/github.svg"></a>
           </div>
         </div>
       </div>
     </div>
-    <div class="project" data-category="ml">
+    <div class="project" data-category="tec">
       <picture class="concept">
         <img src="/static/img/project/wager_optimiser.png">
       </picture>
@@ -57,7 +76,7 @@
         </div>
       </div>
     </div>
-    <div class="project" data-category="da">
+    <div class="project" data-category="vis">
       <picture class="concept">
         <img src="/static/img/project/ctn_monitor.png">
       </picture>

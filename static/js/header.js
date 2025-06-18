@@ -1,6 +1,6 @@
 fetch("/template/header.html").then(response => response.text()).then(data => {
   document.getElementById("header").innerHTML = data;
-  
+
   async function loadContent(page) {
     return fetch(page).then(response => {
       if (!response.ok) {
@@ -10,9 +10,11 @@ fetch("/template/header.html").then(response => response.text()).then(data => {
     }).then(data => {
       document.getElementById("splash-page").style.display = "none";
       document.getElementById("content").innerHTML = data;
+
       if (document.querySelector(".project-cat")) {
         initProjectFiltering();
       }
+
       if (document.querySelector(".education")) {
         showEducationSlide();
       }
@@ -25,11 +27,11 @@ fetch("/template/header.html").then(response => response.text()).then(data => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
-      
+
       const page = link.getAttribute("data-page");
-      
+
       window.scrollTo(0, 0);
-      
+
       loadContent(page).then(() => {
         closeMenu(event);
       }).catch(error => {
@@ -37,13 +39,12 @@ fetch("/template/header.html").then(response => response.text()).then(data => {
       });
     });
   });
-  
+
   window.addEventListener("resize", () => {
     const navBarMenu = document.getElementsByClassName("navbar-menu")[0];
-    
-    if (window.innerWidth > 768 && navBarMenu.classList.contains("active")) {
+
+    if (window.innerWidth > 768 && navBarMenu.classList.contains("active"))
       closeMenu();
-    }
   });
 });
 
@@ -52,10 +53,10 @@ function toggleMenu() {
   const navBarBtn = document.querySelector(".navbar-btn");
   const navBarMenu = document.getElementsByClassName("navbar-menu")[0];
   const body = document.body;
-  
+
   navBarBtn.classList.toggle("active");
   navBarBtn.setAttribute("aria-expanded", navBarBtn.classList.contains("active"));
-  
+
   if (navBarMenu.classList.contains("active")) {
     closeMenu();
   } else {
@@ -72,10 +73,10 @@ function closeMenu() {
   const navBarBtn = document.querySelector(".navbar-btn");
   const navBarMenu = document.getElementsByClassName("navbar-menu")[0];
   const body = document.body;
-  
+
   navBarBtn.classList.remove("active");
   navBarMenu.classList.remove("active");
-  
+
   setTimeout(() => {
     navBarMenu.style.display = "none";
     body.classList.remove("no-scroll");
@@ -85,9 +86,10 @@ function closeMenu() {
 
 function showNotification(message) {
   const msgBox = document.getElementById("msgBox");
+
   msgBox.textContent = message;
   msgBox.style.opacity = 1;
-  
+
   setTimeout(() => {
     msgBox.style.opacity = 0;
   }, 2000);
@@ -97,24 +99,32 @@ function showNotification(message) {
 function initProjectFiltering() {
   const tabs = document.querySelectorAll(".project-cat div");
   const cards = document.querySelectorAll(".project");
-  
+  const technologiaAudio = document.getElementById("technologiaAudio");
+
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
       const filter = tab.getAttribute("data-filter");
-      
+
       tabs.forEach(t => t.classList.remove("active"));
       tab.classList.add("active");
-      
+
       cards.forEach(card => {
-        if (filter === "all" || card.getAttribute("data-category") === filter) {
+        if (filter === "all" || card.getAttribute("data-category").split(" ").includes(filter)) {
           card.style.display = "block";
         } else {
           card.style.display = "none";
         }
       });
+
+      if (filter === "tec" && technologiaAudio) {
+        technologiaAudio.currentTime = 0;
+        technologiaAudio.play().catch(error => {
+          console.error("Error playing audio:", error);
+        });
+      }
     });
   });
-  
+
   cards.forEach(card => card.style.display = "block");
 }
 
@@ -135,7 +145,7 @@ function showEducationSlide() {
       items[current].classList.add("active");
       items[current].style.pointerEvents = "auto";
     },
-    
+
     nextSlide: () => {
       slider.reset();
       if (current === items.length - 1) current = -1;
@@ -144,23 +154,26 @@ function showEducationSlide() {
       items[current].classList.add("active");
       items[current].style.pointerEvents = "auto";
     },
-    
+
     clickedControl: (e) => {
       slider.reset();
       clearInterval(intervalF);
+
       const control = e.target,
       dataIndex = Number(control.dataset.index);
       control.classList.add("active");
+
       items.forEach((item, index) => { 
         if (index === dataIndex) {
           item.classList.add("active");
           item.style.pointerEvents = "auto";
         }
       });
+
       current = dataIndex;
       intervalF = setInterval(slider.nextSlide, interval);
     },
-    
+
     reset: () => {
       items.forEach(item => {
         item.classList.remove("active");
@@ -169,7 +182,7 @@ function showEducationSlide() {
       controls.forEach(control => control.classList.remove("active"));
     }
   }
-  
+
   let intervalF = setInterval(slider.nextSlide, interval);
   slider.init();
 }

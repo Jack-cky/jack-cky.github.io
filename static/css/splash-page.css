@@ -17,13 +17,17 @@
 
 .welcome-msg .intro {
   display: flex;
+  flex-wrap: wrap;
   font-size: 5rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .welcome-msg .typewriter {
   animation: cursor 0.8s infinite;
-  overflow: hidden;
-  white-space: nowrap;
+  display: inline-block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .welcome-msg .hide-cursor {
