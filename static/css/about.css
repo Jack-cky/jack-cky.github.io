@@ -226,42 +226,45 @@
   padding-bottom: 6vh;
 }
 
-.certification picture {
+.certification .badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 1vh;
+  gap: 1rem;
   justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .certification .badge {
   position: relative;
-  display: inline-block;
 }
 
 .certification .badge img {
   height: 4rem;
+  opacity: 0.8;
+  transition: opacity 0.2s;
   width: 4rem;
 }
 
-.certification .badge-tooltip {
-  background-color: var(--colour-gold);
-  border-radius: 5px;
-  color: var(--colour-white);
-  font-size: 0.8rem;
-  left: 50%;
-  margin-left: 0;
-  opacity: 0;
-  padding: 0.3rem;
-  position: absolute;
-  text-align: center;
-  transform: translateX(-50%);
-  top: 100%;
-  transition: opacity 0.5s;
-  visibility: hidden;
-  width: 80px;
-  z-index: 1;
+.certification .badge:hover img {
+  opacity: 1;
 }
 
+.certification .badge-tooltip {
+  background: var(--colour-gold);
+  color: var(--colour-white);
+  font-size: 0.7rem;
+  left: 50%;
+  opacity: 0;
+  padding: 0.3rem 0.5rem;
+  position: absolute;
+  text-align: center;
+  top: -1.5rem;
+  transform: translateX(-50%);
+  transition: opacity 0.2s;
+  visibility: hidden;
+  white-space: nowrap;
+}
 
 .certification .badge:hover .badge-tooltip {
   opacity: 1;

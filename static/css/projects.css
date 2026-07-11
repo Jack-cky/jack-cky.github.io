@@ -31,15 +31,12 @@
 }
 
 .projects .project {
-  align-items: center;
   background-color: white;
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
+  display: block;
   height: 300px;
-  justify-content: center;
   padding: 15px;
-  position: relative; /* Set position relative */
+  position: relative;
   text-align: center;
   width: 300px;
 }

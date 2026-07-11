@@ -7,3 +7,14 @@
   margin: 0;
   text-align: center;
 }
+
+.services-audio-trigger {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
