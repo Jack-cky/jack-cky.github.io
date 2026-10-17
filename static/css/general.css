@@ -13,20 +13,19 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 body {
   background-color: var(--colour-white);
   background-image: var(--background-image);
   color: var(--colour-black);
+  display: flex;
+  flex-direction: column;
   font-family: "Roboto", sans-serif;
   margin: 0;
-  overflow: scroll;
+  min-height: 100vh;
   padding: 0 5%;
-}
-
-body::-webkit-scrollbar {
-  display: none;
 }
 
 body.no-scroll {
@@ -35,6 +34,6 @@ body.no-scroll {
 
 main {
   box-sizing: border-box;
+  flex: 1;
   margin-top: 80px;
-  max-width: 100%;
 }

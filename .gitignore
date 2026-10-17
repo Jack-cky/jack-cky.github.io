@@ -1,9 +1,6 @@
+# macOS metadata
 .DS_Store
-Thumbs.db
 
-*.swp
-*.swo
-*~
-
-.vscode/
-.idea/
+# AI tooling
+.claude/
+CLAUDE.md

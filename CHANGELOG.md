@@ -1,5 +1,30 @@
 # Changelog
 
+## [2.1.0] - 2026-10-17
+
+Introduced project video previews and expanded the portfolio with new content, interactions, and responsive layout improvements.
+
+### Added
+- Added a personal bio section with a link to the Markov decision process reference `pages/about.html`.
+- Added a horizontal certification marquee with hover-to-pause behavior `static/css/about.css`, `static/js/header.js`.
+- Added View Transition animations to project category filtering `static/js/header.js`.
+- Added the HKHS Code Search project and its preview assets and links `pages/projects.html`, `static/img/project/`, `static/video/`.
+- Added video previews and a modal video player for project cards `pages/projects.html`, `static/css/projects.css`, `static/js/header.js`, `static/video/`.
+- Added Fabric and GitHub certifications `pages/about.html`, `static/img/certificate/`.
+
+### Changed
+- Moved the certification badges into the self-paced learning section and reorganised their presentation `pages/about.html`.
+- Replaced the project preview play icon with a labelled `Preview` overlay and hover treatment `static/css/projects.css`.
+- Updated the Experience page job title and employment end date `pages/experience.html`.
+- Changed the splash-page typewriter animation to pause while the tab is hidden and resume when it becomes visible, removed manual line wrapping, and changed the completed animation to jump to the page end `static/js/splash-page.js`.
+- Simplified responsive menu state handling and added discrete display transitions `static/css/header.css`, `static/js/header.js`.
+- Moved the services audio source into the page markup and standardised audio cleanup across page navigation `pages/services.html`, `static/js/header.js`.
+- Refined the education slideshow timing, layering, and self-introduction image positioning `static/css/about.css`, `static/js/header.js`.
+- Updated the shared page shell and footer layout to keep the footer in the page flow and fill the viewport `static/css/general.css`, `static/css/footer.css`.
+- Consolidated the Experience card hover transitions and updated project card grid behavior `static/css/experience.css`, `static/css/projects.css`.
+- Updated shared email trigger selectors and project card layout behavior `static/js/footer.js`, `template/header.html`, `template/footer.html`, `static/css/projects.css`.
+- Updated the GitHub social icons used in the shared header and footer `static/img/social/github-bk.svg`, `static/img/social/github-gd.svg`.
+
 ## [2.0.4] - 2026-07-11
 
 Polished content and display refinements across the site.

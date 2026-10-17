@@ -5,5 +5,5 @@
 </div>
 
 <div align="right">
-  <p><strong>First Published:</strong> 30 July 2023<br><strong>Last Updated:</strong> 11 July 2026</p>
+  <p><strong>First Published:</strong> 30 July 2023<br><strong>Last Updated:</strong> 17 October 2026</p>
 </div>

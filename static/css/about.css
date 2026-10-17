@@ -9,11 +9,9 @@
 .self-intro .self-intro-image {
   bottom: -15%;
   height: auto;
-  left: 50%;
   min-height: 100%;
   object-fit: cover;
   position: absolute;
-  transform: translateX(-50%);
   width: 100%;
 }
 
@@ -55,6 +53,36 @@
   }
 }
 
+.bio {
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.9;
+  margin: 6vh auto 4vh;
+  max-width: 150ch;
+  padding: 0 5%;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.bio p {
+  margin: 0;
+}
+
+.bio a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bio .eyebrow {
+  color: var(--colour-gold);
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
 .education {
   height: 450px;
   margin: 0 auto;
@@ -73,14 +101,15 @@
 .education .schools {
   height: 300px;
   position: relative;
-  width: 100%;
 }
 
 .education .school {
-  height: auto;
-  pointer-events: auto;
   position: absolute;
   width: 100%;
+}
+
+.education .school:not(.active) {
+  pointer-events: none;
 }
 
 .education .school-image {
@@ -88,33 +117,15 @@
   width: 270px;
 }
 
-.education .school-image::before {
-  background: var(--colour-white);
-  content: "";
-  height: 101%;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: -1px;
-  width: 101%;
-  z-index: 1;
-}
-
 .education .school-image img {
   display: block;
-  height: auto;
   opacity: 0;
-  position: relative;
   transition: opacity 0.3s ease-out 0.45s;
   width: 100%;
 }
 
 .education .school.active .school-image img {
-  opacity: 1;
-}
-
-.education .school.active .school-image::before {
-  opacity: 0.8;
+  opacity: 0.2;
 }
 
 .education .details {
@@ -128,6 +139,21 @@
   right: 10%;
   top: 0%;
   width: 50%;
+}
+
+.education blockquote {
+  border-left: 3px solid var(--colour-gold);
+  font-style: italic;
+  padding-left: 15px;
+}
+
+.education blockquote cite::before { content: "\2014\00a0"; }
+
+.education blockquote cite {
+  display: block;
+  font-size: 0.85rem;
+  font-style: normal;
+  margin-top: 5px;
 }
 
 .education .qualification {
@@ -145,11 +171,6 @@
   font-size: 1.1rem;
 }
 
-.education .details .line-delay .details {
-  font-size: 0.8rem;
-  margin-left: 30px;
-}
-
 .education .qualification .title {
   font-size: 2.2rem;
   font-style: italic;
@@ -165,7 +186,7 @@
   color: var(--colour-gold);
 }
 
-.education .line-delay p {
+.education .line-delay :is(p, blockquote) {
   display: inline-block;
   margin: 0;
   transform: translateY(100%);
@@ -175,7 +196,7 @@
   transition: .5s;
 }
 
-.education .details .line-delay p {
+.education .details .line-delay :is(p, blockquote) {
   transition: .21s;
 }
 
@@ -183,7 +204,7 @@
   transform: translateY(0);
 }
 
-.education .school.active .details .line-delay p {
+.education .school.active .details .line-delay :is(p, blockquote) {
   transform: translateY(0);
 }
 
@@ -223,16 +244,30 @@
 }
 
 .certification {
-  padding-bottom: 6vh;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  overflow: hidden;
+  padding-top: 1.8rem;
+  transition: opacity .21s;
+}
+
+.school:not(.active) .certification {
+  opacity: 0;
 }
 
 .certification .badges {
+  animation: marquee 45s linear infinite;
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1200px;
+  width: max-content;
+}
+
+.certification:hover .badges {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
 }
 
 .certification .badge {
@@ -240,10 +275,11 @@
 }
 
 .certification .badge img {
-  height: 4rem;
+  display: block;
+  height: 3.2rem;
   opacity: 0.8;
   transition: opacity 0.2s;
-  width: 4rem;
+  width: 3.2rem;
 }
 
 .certification .badge:hover img {

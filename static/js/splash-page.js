@@ -7,11 +7,12 @@ fetch("/pages/splash-page.html").then(response => response.text()).then(data => 
   let currentPhrase = 0;
   let currentIndex = 0;
   let isStopped = false;
+  let resume = null;
   const timeoutIds = new Set();
 
   function shouldContinueAnimation() {
     const splashPage = document.getElementById("splash-page");
-    return !isStopped && !document.hidden && splashPage && splashPage.style.display !== "none";
+    return !isStopped && splashPage && splashPage.style.display !== "none";
   }
 
   function queueTimeout(callback, delay) {
@@ -19,6 +20,11 @@ fetch("/pages/splash-page.html").then(response => response.text()).then(data => 
       timeoutIds.delete(timeoutId);
 
       if (!shouldContinueAnimation()) {
+        return;
+      }
+
+      if (document.hidden) {
+        resume = callback;
         return;
       }
 
@@ -30,6 +36,7 @@ fetch("/pages/splash-page.html").then(response => response.text()).then(data => 
 
   function stopSplashPageAnimation() {
     isStopped = true;
+    resume = null;
     timeoutIds.forEach(clearTimeout);
     timeoutIds.clear();
   }
@@ -37,8 +44,10 @@ fetch("/pages/splash-page.html").then(response => response.text()).then(data => 
   window.stopSplashPageAnimation = stopSplashPageAnimation;
 
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      stopSplashPageAnimation();
+    if (!document.hidden && resume) {
+      const next = resume;
+      resume = null;
+      next();
     }
   });
 
@@ -48,7 +57,7 @@ fetch("/pages/splash-page.html").then(response => response.text()).then(data => 
     }
 
     if (currentPhrase < phrases.length) {
-      if (currentPhrase === 2) {
+      if (currentPhrase === phrases.length - 1) {
         prefixElement.style.display = "none";
       } else {
         prefixElement.style.display = "inline";
@@ -56,15 +65,6 @@ fetch("/pages/splash-page.html").then(response => response.text()).then(data => 
 
       if (currentIndex < phrases[currentPhrase].length) {
         typewriterElement.textContent += phrases[currentPhrase][currentIndex];
-
-        const containerWidth = typewriterElement.parentElement.offsetWidth;
-        const textWidth = typewriterElement.offsetWidth;
-
-        if (textWidth > containerWidth) {
-          typewriterElement.textContent = typewriterElement.textContent.slice(0, -1);
-          typewriterElement.textContent += "\n" + phrases[currentPhrase][currentIndex];
-        }
-
         currentIndex++;
         queueTimeout(type, 120);
       } else {
@@ -73,10 +73,7 @@ fetch("/pages/splash-page.html").then(response => response.text()).then(data => 
         } else {
           queueTimeout(() => {
             typewriterElement.classList.add("hide-cursor");
-
-            if (shouldContinueAnimation()) {
-              gradualScroll();
-            }
+            window.scrollTo(0, document.body.scrollHeight);
           }, 2000);
         }
       }
@@ -101,25 +98,5 @@ fetch("/pages/splash-page.html").then(response => response.text()).then(data => 
     }
   }
 
-  function gradualScroll() {
-    const targetHeight = document.body.scrollHeight;
-    const step = targetHeight / 50;
-    let currentScroll = 0;
-
-    function scroll() {
-      if (!shouldContinueAnimation()) {
-        return;
-      }
-
-      if (currentScroll < targetHeight) {
-        currentScroll += step;
-        window.scrollTo(0, currentScroll);
-        queueTimeout(scroll, 50);
-      }
-    }
-
-    scroll();
-  }
-
-  type();
+  queueTimeout(type, 0);
 });

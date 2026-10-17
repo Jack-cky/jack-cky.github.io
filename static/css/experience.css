@@ -15,7 +15,6 @@
 .experience .job {
   height: 285px;
   transition: 0.5s;
-  transform-style: preserve-3d;
   overflow: hidden;
   position: relative;
   width: 400px;
@@ -93,14 +92,6 @@
   opacity: 1;
 }
 
-.experience .job:hover .job-detail h2 {
-  transform: translateY(0px);
-}
-
-.experience .job:hover .job-detail hr {
-  transform: translateY(0px);
-}
-
-.experience .job:hover .job-detail p {
-  transform: translateY(0px);
+.experience .job:hover .job-detail :is(h2, hr, p) {
+  transform: translateY(0);
 }

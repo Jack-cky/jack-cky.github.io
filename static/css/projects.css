@@ -22,28 +22,25 @@
 }
 
 .projects {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 20px;
+  grid-template-columns: repeat(auto-fit, 330px);
   justify-content: center;
-  min-height: calc(100vh - 250px);
   padding-bottom: 6vh;
 }
 
 .projects .project {
   background-color: white;
   border-radius: 8px;
-  display: block;
   height: 300px;
   padding: 15px;
   position: relative;
   text-align: center;
-  width: 300px;
 }
 
 .projects .concept img {
   border-radius: 8px;
-  height: 55%;
+  height: 100%;
   object-fit: cover;
   width: 100%;
 }
@@ -75,4 +72,78 @@
 
 .projects .project-info img {
   height: 25px;
+}
+
+.projects .concept {
+  cursor: pointer;
+  display: block;
+  height: 55%;
+  position: relative;
+}
+
+.projects .concept img {
+  transition: filter 0.3s;
+}
+
+.projects .concept:hover img {
+  filter: brightness(0.5);
+}
+
+.projects .concept::after {
+  border: 1px solid white;
+  border-radius: 999px;
+  content: "Preview";
+  color: white;
+  font-size: 0.9rem;
+  left: 50%;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  padding: 0.4em 1.1em;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+.projects .concept:hover::after {
+  opacity: 1;
+}
+
+#videoDialog {
+  --fade: 0.6s;
+  background: black;
+  border: none;
+  border-radius: 8px;
+  max-width: min(90vw, 1120px);
+  opacity: 0;
+  padding: 0;
+  transition: opacity var(--fade), overlay var(--fade) allow-discrete, display var(--fade) allow-discrete;
+}
+
+#videoDialog[open] {
+  opacity: 1;
+}
+
+#videoDialog::backdrop {
+  background: rgba(0, 0, 0, 0);
+  transition: background var(--fade), overlay var(--fade) allow-discrete, display var(--fade) allow-discrete;
+}
+
+#videoDialog[open]::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@starting-style {
+  #videoDialog[open] {
+    opacity: 0;
+  }
+
+  #videoDialog[open]::backdrop {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+#videoDialog video {
+  display: block;
+  width: 100%;
 }

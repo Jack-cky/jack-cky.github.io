@@ -33,8 +33,6 @@ header {
 }
 
 .navbar-btn {
-  background-color: transparent;
-  border: none;
   cursor: pointer;
   display: none;
   z-index: 1;
@@ -56,13 +54,11 @@ header {
 }
 
 .navbar-btn.active .btn-outer {
-  stroke: var(--colour-black);
   stroke-dasharray: 90 207;
   stroke-dashoffset: -134;
 }
 
 .navbar-btn.active .btn-inner {
-  stroke: var(--colour-black);
   stroke-dasharray: 1 60;
   stroke-dashoffset: -30;
 }
@@ -79,13 +75,19 @@ header {
   position: fixed;
   text-align: center;
   top: 0;
-  transition: background-color 0.5s ease, opacity 0.5s ease;
+  transition: background-color 0.5s ease, opacity 0.5s ease, display 0.5s allow-discrete;
   width: 100%;
 }
 
 .navbar-menu.active {
   display: flex;
   opacity: 1;
+}
+
+@starting-style {
+  .navbar-menu.active {
+    opacity: 0;
+  }
 }
 
 .navbar-menu a {
@@ -106,8 +108,7 @@ header {
   justify-content: center;
 }
 
-.social-icons a,
-.social-icons div {
+.social-icons a {
   cursor: pointer;
   position: relative;
   height: 30px;

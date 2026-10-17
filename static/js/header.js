@@ -1,9 +1,7 @@
 fetch("/template/header.html").then(response => response.text()).then(data => {
   document.getElementById("header").innerHTML = data;
 
-  const audioCache = new Map();
-
-  async function loadContent(page) {
+  function loadContent(page) {
     return fetch(page).then(response => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
@@ -21,39 +19,17 @@ fetch("/template/header.html").then(response => response.text()).then(data => {
         showEducationSlide();
       }
 
-      if (document.querySelector(".services-audio-trigger")) {
-        initServicesAudioTrigger();
+      const audioTrigger = document.querySelector(".services-audio-trigger");
+      if (audioTrigger) {
+        audioTrigger.addEventListener("click", () => playSafely(document.getElementById("buzzwordsAudio")));
       }
     }).catch(error => {
       console.error("There was a problem with the fetch operation:", error);
     });
   }
 
-  function playAudio(audioPath) {
-    if (!audioPath) return;
-
-    let audio = audioCache.get(audioPath);
-
-    if (!audio) {
-      audio = new Audio(audioPath);
-      audioCache.set(audioPath, audio);
-    }
-
-    playSafely(audio);
-  }
-
-  function initServicesAudioTrigger() {
-    document.querySelectorAll(".services-audio-trigger").forEach(trigger => {
-      trigger.addEventListener("click", () => {
-        playAudio(trigger.getAttribute("data-audio"));
-      });
-    });
-  }
-
   function stopAllAudio() {
-    const audios = [...audioCache.values(), ...document.querySelectorAll("audio")];
-
-    audios.forEach(audio => {
+    document.querySelectorAll("audio").forEach(audio => {
       audio.pause();
       audio.currentTime = 0;
     });
@@ -76,60 +52,29 @@ fetch("/template/header.html").then(response => response.text()).then(data => {
       stopAllAudio();
       window.scrollTo(0, 0);
 
-      loadContent(page).then(() => {
-        closeMenu(event);
-      }).catch(error => {
-        console.error("Failed to load content:", error);
-      });
+      loadContent(page).then(closeMenu);
     });
   });
 
   window.addEventListener("resize", () => {
-    const navBarMenu = document.querySelector(".navbar-menu");
-
-    if (window.innerWidth > 768 && navBarMenu.classList.contains("active"))
+    if (window.innerWidth > 768 && document.querySelector(".navbar-menu").classList.contains("active"))
       closeMenu();
   });
 });
 
 
-function getMenuElements() {
-  return {
-    navBarBtn: document.querySelector(".navbar-btn"),
-    navBarMenu: document.querySelector(".navbar-menu"),
-    body: document.body,
-  };
-}
-
-
 function toggleMenu() {
-  const { navBarBtn, navBarMenu, body } = getMenuElements();
+  const open = document.querySelector(".navbar-menu").classList.toggle("active");
 
-  navBarBtn.classList.toggle("active");
-  navBarBtn.setAttribute("aria-expanded", navBarBtn.classList.contains("active"));
-
-  if (navBarMenu.classList.contains("active")) {
-    closeMenu();
-  } else {
-    navBarMenu.style.display = "flex";
-    setTimeout(() => {
-      navBarMenu.classList.add("active");
-      body.classList.add("no-scroll");
-    }, 10);
-  }
+  document.querySelector(".navbar-btn").classList.toggle("active", open);
+  document.body.classList.toggle("no-scroll", open);
 }
 
 
 function closeMenu() {
-  const { navBarBtn, navBarMenu, body } = getMenuElements();
-
-  navBarBtn.classList.remove("active");
-  navBarMenu.classList.remove("active");
-
-  setTimeout(() => {
-    navBarMenu.style.display = "none";
-    body.classList.remove("no-scroll");
-  }, 500);
+  document.querySelector(".navbar-menu").classList.remove("active");
+  document.querySelector(".navbar-btn").classList.remove("active");
+  document.body.classList.remove("no-scroll");
 }
 
 
@@ -157,73 +102,15 @@ function initProjectFiltering() {
   const tabs = document.querySelectorAll(".project-cat div");
   const cards = [...document.querySelectorAll(".project")];
   const technologiaAudio = document.getElementById("technologiaAudio");
-  const FADE_MS = 200;
-  const MOVE_MS = 300;
 
-  function isShown(card) {
-    return card.style.display !== "none";
-  }
+  cards.forEach((card, i) => card.style.viewTransitionName = "project-" + i);
 
   function applyFilter(filter) {
-    const toHide = [];
-    const staying = [];
-    const toShow = [];
-
-    cards.forEach(card => {
-      const matches = filter === "all" || card.getAttribute("data-category").split(" ").includes(filter);
-      const shown = isShown(card);
-
-      if (shown && !matches) toHide.push(card);
-      else if (shown && matches) staying.push(card);
-      else if (!shown && matches) toShow.push(card);
+    const update = () => cards.forEach(card => {
+      card.hidden = filter !== "all" && !card.getAttribute("data-category").split(" ").includes(filter);
     });
 
-    const firstRects = new Map(staying.map(card => [card, card.getBoundingClientRect()]));
-
-    toHide.forEach(card => {
-      card.style.transition = `opacity ${FADE_MS}ms ease, transform ${FADE_MS}ms ease`;
-      card.style.opacity = "0";
-      card.style.transform = "scale(0.85)";
-      card.style.pointerEvents = "none";
-    });
-
-    const reveal = () => {
-      toHide.forEach(card => {
-        card.style.display = "none";
-      });
-
-      toShow.forEach(card => {
-        card.style.transition = "none";
-        card.style.display = "block";
-        card.style.opacity = "0";
-        card.style.transform = "scale(0.85)";
-      });
-
-      staying.forEach(card => {
-        const first = firstRects.get(card);
-        const last = card.getBoundingClientRect();
-        const dx = first.left - last.left;
-        const dy = first.top - last.top;
-
-        card.style.transition = "none";
-        card.style.transform = (dx || dy) ? `translate(${dx}px, ${dy}px)` : "";
-      });
-
-      void document.body.offsetHeight;
-
-      [...staying, ...toShow].forEach(card => {
-        card.style.transition = `opacity ${MOVE_MS}ms ease, transform ${MOVE_MS}ms ease`;
-        card.style.opacity = "";
-        card.style.transform = "";
-        card.style.pointerEvents = "";
-      });
-    };
-
-    if (toHide.length) {
-      setTimeout(reveal, FADE_MS);
-    } else {
-      reveal();
-    }
+    document.startViewTransition ? document.startViewTransition(update) : update();
   }
 
   tabs.forEach(tab => {
@@ -241,57 +128,48 @@ function initProjectFiltering() {
     });
   });
 
-  cards.forEach(card => card.style.display = "block");
+  const dialog = document.getElementById("videoDialog");
+  const video = dialog.querySelector("video");
+  document.querySelectorAll(".concept[data-video]").forEach(el => {
+    el.addEventListener("click", () => {
+      video.src = el.dataset.video;
+      dialog.showModal();
+      playSafely(video);
+    });
+  });
+  dialog.addEventListener("click", e => { if (e.target === dialog) dialog.close(); });
+  video.addEventListener("ended", () => dialog.close());
+  dialog.addEventListener("close", () => video.pause());
 }
 
 
 function showEducationSlide() {
-  const items = document.querySelectorAll(".school"),
-  controls = document.querySelectorAll(".control"),
-  interval = 8000;
+  const badges = document.querySelector(".certification .badges");
+  badges.append(...[...badges.children].map(badge => badge.cloneNode(true)));
 
+  const items = document.querySelectorAll(".school");
+  const controls = document.querySelectorAll(".control");
   let current = 0;
+  let timer;
 
-  function activate(index) {
-    controls[index].classList.add("active");
-    items[index].classList.add("active");
-    items[index].style.pointerEvents = "auto";
+  function show(index) {
+    current = index;
+    items.forEach((item, i) => item.classList.toggle("active", i === index));
+    controls.forEach((control, i) => control.classList.toggle("active", i === index));
   }
 
-  const slider = {
-    init: () => {
-      controls.forEach(control =>
-        control.addEventListener("click", (e) => slider.clickedControl(e))
-      );
-      activate(current);
-    },
-
-    nextSlide: () => {
-      slider.reset();
-      if (current === items.length - 1) current = -1;
-      current++;
-      activate(current);
-    },
-
-    clickedControl: (e) => {
-      slider.reset();
-      clearInterval(intervalF);
-
-      current = Number(e.target.dataset.index);
-      activate(current);
-
-      intervalF = setInterval(slider.nextSlide, interval);
-    },
-
-    reset: () => {
-      items.forEach(item => {
-        item.classList.remove("active");
-        item.style.pointerEvents = "none";
-      });
-      controls.forEach(control => control.classList.remove("active"));
-    }
+  function restartTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => show((current + 1) % items.length), 8000);
   }
 
-  let intervalF = setInterval(slider.nextSlide, interval);
-  slider.init();
+  controls.forEach(control => {
+    control.addEventListener("click", () => {
+      show(Number(control.dataset.index));
+      restartTimer();
+    });
+  });
+
+  show(0);
+  restartTimer();
 }
